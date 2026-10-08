@@ -58,9 +58,6 @@ pokemon.forEach((item) => {
     const typeHead = document.createElement("h3")
     const hpHead = document.createElement("h3")
 
-
-
-
     header.innerHTML = item.name
     typeHead.innerHTML = item.type
     hpHead.innerHTML = item.maxHp
@@ -69,12 +66,29 @@ pokemon.forEach((item) => {
     ele.appendChild(typeHead)
     ele.appendChild(hpHead)
 
-
-        item.moves.forEach((item) => {
+    item.moves.forEach((item) => {
         const moveHead = document.createElement("h5")
         ele.appendChild(moveHead)
         moveHead.innerHTML = item
     })
+
+    switch (item.type) {
+        case "Fire":
+          ele.style.color = "red"
+          break;
+        
+        case "Water":
+          ele.style.color = "blue"
+        break;
+
+        case "Electric":
+          ele.style.color = "yellow"
+        break;
+
+        default:
+          break;
+      }
+  
     
     wrapper.appendChild(ele)
 });
